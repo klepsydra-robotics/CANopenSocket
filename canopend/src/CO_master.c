@@ -61,7 +61,7 @@ int sdoClientUpload(
         }
     }
 
-    /* Upload data. Loop in 10 ms intervals. */
+    /* Upload data. Loop in 50 us intervals. */
     if(err == 0){
         CO_SDOclient_return_t ret;
         uint16_t timer1msPrev;
@@ -69,7 +69,7 @@ int sdoClientUpload(
 
         timer1msPrev = CO_timer1ms;
         sleepTime.tv_sec = 0;
-        sleepTime.tv_nsec = 10000000;
+        sleepTime.tv_nsec = 25000;
 
         do {
             uint16_t timer1ms, timer1msDiff;
@@ -124,7 +124,7 @@ int sdoClientDownload(
         }
     }
 
-    /* Download data. Loop in 5 ms intervals. */
+    /* Download data. Loop in 5o us intervals. */
     if(err == 0){
         CO_SDOclient_return_t ret;
         uint16_t timer1msPrev;
@@ -132,7 +132,7 @@ int sdoClientDownload(
 
         timer1msPrev = CO_timer1ms;
         sleepTime.tv_sec = 0;
-        sleepTime.tv_nsec = 5000000;
+        sleepTime.tv_nsec = 25000;
 
         do {
             uint16_t timer1ms, timer1msDiff;
