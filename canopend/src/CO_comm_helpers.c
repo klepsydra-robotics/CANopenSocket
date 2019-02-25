@@ -325,6 +325,7 @@ uint64_t getU64(char *token, uint64_t min, uint64_t max, int *err) {
 
 
 int64_t getI64(char *token, int64_t min, int64_t max, int *err) {
+    printf("getI64. Token: %s, %d\n", token, *err);
     int64_t num;
     char *sRet = NULL;
 
@@ -334,6 +335,7 @@ int64_t getI64(char *token, int64_t min, int64_t max, int *err) {
     }
 
     num = strtoll(token, &sRet, 0);
+    printf("getI64. strtoll num: %ll\n", num);
     if(sRet != strchr(token, '\0') || num < min || num > max) {
         *err = 1;
         return 0;
